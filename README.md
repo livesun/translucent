@@ -38,7 +38,11 @@ step2、app gradle中
 ```
 fitsSysytemWindows=“true"
 ```
-
+以及删除styles文件中的这个属性
+```
+<item name="android:windowTranslucentStatus">true</item>
+```
+### 单独Activity中使用
 
 1、继承BaseTranslucentActivity。
 
