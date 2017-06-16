@@ -25,6 +25,7 @@ step2、app gradle中
 设置AppTheme为NoActionBar
 例如：
 ```
+    <style>
 	<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorAccent</item>
@@ -153,4 +154,4 @@ false的效果：
 true的效果
 ![s k7hh8jv ux9_ 6 ugguw](https://user-images.githubusercontent.com/27534854/27220701-b2f76452-52b8-11e7-9bf9-24e34c71d6ae.png)
 
-
+博客讲解地址：https://livesun.github.io/2017/06/16/translucent/
