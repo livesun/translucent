@@ -172,10 +172,25 @@ true的效果
 //例子如下：
 ```
 //在fragment中
-public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.from(getActivity()).inflate(R.layout.mine_frament, container, false);
-        Toolbar toolbar= (Toolbar) view.findViewById(R.id.toolbar);
-        TranslucentUtils.setStatusPicture(toolbar,R.drawable.bgss,getActivity(),false);
+private View view;
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    //预防重复加载
+      if(view==null){
+            view = inflater.from(getActivity()).inflate(R.layout.home_frament, container, false);
+            Toolbar toolbar= (Toolbar) view.findViewById(R.id.toolbar);
+            TranslucentUtils.setStatusColor(toolbar,R.color.colorPrimary,getActivity(),true);
+        }
+
+        ViewGroup parent = (ViewGroup) view.getParent();
+        if (parent != null) {
+            parent.removeView(view);
+        }
+
+
+
         return view;
     }
 
