@@ -56,7 +56,7 @@ LinearLayout title= (LinearLayout) findViewById(R.id.title);
 setStatusColor(title,R.color.colorPrimary,false);
 
 ```
-开启手动隐藏和展示的效果
+开启手动隐藏和展示的效果，可以通过改方式实现全屏效果
 
 ![steep_toggel2](https://user-images.githubusercontent.com/27534854/27220469-d8ab2496-52b7-11e7-97de-84ad6185338b.gif)
 
