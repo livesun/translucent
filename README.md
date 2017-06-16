@@ -181,7 +181,8 @@ private View view;
       if(view==null){
             view = inflater.from(getActivity()).inflate(R.layout.home_frament, container, false);
             Toolbar toolbar= (Toolbar) view.findViewById(R.id.toolbar);
-            TranslucentUtils.setStatusColor(toolbar,R.color.colorPrimary,getActivity(),true);
+	    //如果想隐藏状态栏，这里建议第一个在fragment中设置true，其余的为false。如果不想隐藏，则设置全部为false
+            TranslucentUtils.setStatusColor(toolbar,R.color.colorPrimary,getActivity(),true);
         }
 
         ViewGroup parent = (ViewGroup) view.getParent();
