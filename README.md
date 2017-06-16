@@ -34,6 +34,11 @@ step2、app gradle中
     </style>
 
 ```
+注意：如果xml布局中写了这个属性，需要删除掉
+```
+fitsSysytemWindows=“true"
+```
+
 
 1、继承BaseTranslucentActivity。
 
