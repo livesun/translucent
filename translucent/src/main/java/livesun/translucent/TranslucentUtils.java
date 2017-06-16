@@ -6,8 +6,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.RequiresApi;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -135,8 +138,7 @@ public class TranslucentUtils {
             if(botoomBar!=null){
                 ViewGroup.LayoutParams bootomParams = botoomBar.getLayoutParams();
 
-
-                    if(isVirtualKeyShow(activity)){
+                    if(isBootomBarShow(activity)){
                         bootomParams.height+=getNavigationHeight(activity);
                         botoomBar.setBackgroundColor(color);
                         botoomBar.setLayoutParams(bootomParams);
@@ -186,11 +188,33 @@ public class TranslucentUtils {
     public static boolean isVirtualKeyShow(Activity activity){
             int resourceId =  activity.getResources().getIdentifier("config_showNavigationBar", "bool", "android");
             if (resourceId > 0) {
-                return activity.getResources().getBoolean(resourceId);
+                boolean b = activity.getResources().getBoolean(resourceId);
+                return b;
             }
 
         return false;
     }
+    //判断是否打开底部导航条 5.1以上没有导航栏也可以设置颜色。
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+    public  static   boolean isBootomBarShow(Activity activity){
+        Display display = activity.getWindowManager().getDefaultDisplay();
+        DisplayMetrics outMetrics=new DisplayMetrics();
+        //获取整个屏幕的高度
+        display.getRealMetrics(outMetrics);
+        int realHeight = outMetrics.heightPixels;
+        int realWidth = outMetrics.widthPixels;
+        //获取内容展示的高度
+        outMetrics=new DisplayMetrics();
+        display.getMetrics(outMetrics);
+        int contentHeight = outMetrics.heightPixels;
+        int contentWidth = outMetrics.widthPixels;
+
+        int h = realHeight - contentHeight;
+        int w = realWidth - contentWidth;
+
+        return h>0||w>0;//竖屏情况和横屏情况。
+    }
+
     /**
      * dip 转 px
      * @param dp
