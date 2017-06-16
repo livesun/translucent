@@ -152,11 +152,32 @@ LinearLayout title= (LinearLayout) findViewById(R.id.title);
     }
 
 ```
+
+
 效果如下
 false的效果：
 ![ota za 5fvww1io2lb_k7hn](https://user-images.githubusercontent.com/27534854/27220690-a656d9c6-52b8-11e7-9704-93164c40ac88.png)
 
 true的效果
 ![s k7hh8jv ux9_ 6 ugguw](https://user-images.githubusercontent.com/27534854/27220701-b2f76452-52b8-11e7-9bf9-24e34c71d6ae.png)
+
+
+### 一个Activity多个fragment的情况下
+
+#### 调用  TranslucentUtils类里面的方法
+//例子如下：
+```
+//在fragment中
+public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.from(getActivity()).inflate(R.layout.mine_frament, container, false);
+        Toolbar toolbar= (Toolbar) view.findViewById(R.id.toolbar);
+        TranslucentUtils.setStatusPicture(toolbar,R.drawable.bgss,getActivity(),false);
+        return view;
+    }
+
+```
+效果图
+
+
 
 博客讲解地址：https://livesun.github.io/2017/06/16/translucent/
