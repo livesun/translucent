@@ -28,33 +28,28 @@ public class TranslucentUtils {
      * @param activity
      * @param isShowUi 是否开启显示或关闭导航条和状态栏
      */
-    public static void  setStatusColor(View titleBar, @ColorRes int resId, Activity activity,boolean isShowUi){
+    public static void setStatusColor(View titleBar, @ColorRes int resId, Activity activity, boolean isShowUi) {
         int color;
-        if(resId>0){
+        if(resId > 0) {
             color = activity.getResources().getColor(resId);
-        }else {
-            color= Color.parseColor("#FF4081");
+        } else {
+            color = Color.parseColor("#FF4081");
         }
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT
-                &&Build.VERSION.SDK_INT<Build.VERSION_CODES.LOLLIPOP
-                ){
-            if(titleBar!=null){
+
+        if(Build.VERSION.SDK_INT >= 19) {
+            if(titleBar != null) {
                 ViewGroup.LayoutParams params = titleBar.getLayoutParams();
                 int statusHeight = getStatusHeight(activity);
-                params.height+= statusHeight;
+                params.height += statusHeight;
                 titleBar.setLayoutParams(params);
-                titleBar.setPadding(titleBar.getPaddingLeft(),
-                        titleBar.getPaddingRight(),
-                        titleBar.getPaddingTop()+ statusHeight,
-                        titleBar.getPaddingBottom());
+                titleBar.setPadding(titleBar.getPaddingLeft(), titleBar.getPaddingRight(), titleBar.getPaddingTop() + statusHeight, titleBar.getPaddingBottom());
                 titleBar.setBackgroundColor(color);
             }
-        }else if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
-            activity.getWindow().setStatusBarColor(color);
         }
-        if(isShowUi){
+        if(isShowUi) {
             toggleHideyBar(activity);
         }
+
     }
 
     /**
@@ -64,47 +59,28 @@ public class TranslucentUtils {
      * @param activity
      * @param isShowUi 是否开启显示或关闭导航条和状态栏
      */
-    public static void setStatusPicture(View titleBar, @DrawableRes int drawableId,Activity activity,boolean isShowUi){
+    public static void setStatusPicture(View titleBar, @DrawableRes int drawableId, Activity activity, boolean isShowUi) {
         Drawable drawableBg;
-        if(drawableId>0){
+        if(drawableId > 0) {
             drawableBg = activity.getResources().getDrawable(drawableId);
-        }else {
-            drawableBg= activity.getResources().getDrawable(R.drawable.ic_launcher);
+        } else {
+            drawableBg = activity.getResources().getDrawable(livesun.translucent.R.drawable.ic_launcher);
         }
+
         int statusHeight = getStatusHeight(activity);
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT
-                &&Build.VERSION.SDK_INT<Build.VERSION_CODES.LOLLIPOP
-                ){
-            if(titleBar!=null){
-                ViewGroup.LayoutParams params = titleBar.getLayoutParams();
-                params.height+= statusHeight;
-                titleBar.setLayoutParams(params);
-                titleBar.setPadding(titleBar.getPaddingLeft(),
-                        titleBar.getPaddingRight(),
-                        titleBar.getPaddingTop()+ statusHeight,
-                        titleBar.getPaddingBottom());
+        if(Build.VERSION.SDK_INT >= 19 ) {
+            if(titleBar != null) {
+                ViewGroup.LayoutParams decorView1 = titleBar.getLayoutParams();
+                decorView1.height += statusHeight;
+                titleBar.setLayoutParams(decorView1);
+                titleBar.setPadding(titleBar.getPaddingLeft(), titleBar.getPaddingRight(), titleBar.getPaddingTop() + statusHeight, titleBar.getPaddingBottom());
                 titleBar.setBackground(drawableBg);
             }
-
-        }else if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
-            View decorView = activity.getWindow().getDecorView();
-            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-            decorView.setSystemUiVisibility(option);
-
-            ViewGroup.LayoutParams params = titleBar.getLayoutParams();
-            params.height+= statusHeight;
-            titleBar.setLayoutParams(params);
-            titleBar.setPadding(titleBar.getPaddingLeft(),
-                    titleBar.getPaddingRight(),
-                    titleBar.getPaddingTop()+ statusHeight,
-                    titleBar.getPaddingBottom()
-            );
-            titleBar.setBackground(drawableBg);
         }
-        if(isShowUi){
+        if(isShowUi) {
             toggleHideyBar(activity);
         }
+
     }
 
     /**

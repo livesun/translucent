@@ -19,10 +19,8 @@ public class BaseTranslucentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //大于等于4.4并且小于5.0----在setContentView之前。
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT
-                && Build.VERSION.SDK_INT<Build.VERSION_CODES.LOLLIPOP
-                ){
+        //大于等于4.4----在setContentView之前。
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT){
             //设置状态栏透明
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             if(setNavigationBarisTranslucent()){
