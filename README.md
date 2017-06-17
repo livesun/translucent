@@ -18,7 +18,7 @@ step2、app gradle中
 
 ```
 	dependencies {
-	        compile 'com.github.livesun:translucent:v1.0'
+	        compile 'com.github.livesun:translucent:v1.1'
 	}
 
 ```
@@ -197,7 +197,7 @@ private View view;
 
 ```
 效果图
-
+![dddddd](https://user-images.githubusercontent.com/27534854/27248869-1e121be6-533c-11e7-9066-b8e05a125137.gif)
 
 
 博客讲解地址：https://livesun.github.io/2017/06/16/translucent/
