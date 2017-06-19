@@ -18,7 +18,7 @@ step2、app gradle中
 
 ```
 	dependencies {
-	        compile 'com.github.livesun:translucent:v1.0'
+	        compile 'com.github.livesun:translucent:v1.1'
 	}
 
 ```
@@ -34,11 +34,13 @@ step2、app gradle中
     </style>
 
 ```
-注意：如果xml布局中写了这个属性，需要删除掉
+### 注意：
+
+- 如果xml布局中写了这个属性，需要删除掉
 ```
 fitsSysytemWindows=“true"
 ```
-以及删除styles文件中的这个属性
+- 删除styles文件中的这条属性
 ```
 <item name="android:windowTranslucentStatus">true</item>
 ```
@@ -166,7 +168,10 @@ true的效果
 ![s k7hh8jv ux9_ 6 ugguw](https://user-images.githubusercontent.com/27534854/27220701-b2f76452-52b8-11e7-9bf9-24e34c71d6ae.png)
 
 
-### 一个Activity多个fragment的情况下
+### 在fragment中使用
+
+依然需要该fragment的activity继承BaseTranslucentActivity。
+在fragment 调用下面的方法，
 
 #### 调用  TranslucentUtils类里面的方法
 //例子如下：
@@ -198,6 +203,9 @@ private View view;
 ```
 效果图
 
+![dddddd](https://user-images.githubusercontent.com/27534854/27248869-1e121be6-533c-11e7-9066-b8e05a125137.gif)
 
 
 博客讲解地址：https://livesun.github.io/2017/06/16/translucent/
+
+反馈：2399747642
