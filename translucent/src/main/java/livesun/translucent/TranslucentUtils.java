@@ -42,7 +42,10 @@ public class TranslucentUtils {
                 int statusHeight = getStatusHeight(activity);
                 params.height += statusHeight;
                 titleBar.setLayoutParams(params);
-                titleBar.setPadding(titleBar.getPaddingLeft(), titleBar.getPaddingRight(), titleBar.getPaddingTop() + statusHeight, titleBar.getPaddingBottom());
+                titleBar.setPadding(titleBar.getPaddingLeft(),
+                        titleBar.getPaddingTop() + statusHeight,
+                        titleBar.getPaddingRight(),
+                        titleBar.getPaddingBottom());
                 titleBar.setBackgroundColor(color);
             }
         }
@@ -73,7 +76,10 @@ public class TranslucentUtils {
                 ViewGroup.LayoutParams decorView1 = titleBar.getLayoutParams();
                 decorView1.height += statusHeight;
                 titleBar.setLayoutParams(decorView1);
-                titleBar.setPadding(titleBar.getPaddingLeft(), titleBar.getPaddingRight(), titleBar.getPaddingTop() + statusHeight, titleBar.getPaddingBottom());
+                titleBar.setPadding(titleBar.getPaddingLeft(),
+                        titleBar.getPaddingTop() + statusHeight,
+                        titleBar.getPaddingRight(),
+                        titleBar.getPaddingBottom());
                 titleBar.setBackground(drawableBg);
             }
         }
@@ -106,8 +112,8 @@ public class TranslucentUtils {
                 params.height+= statusHeight;
                 titleBar.setLayoutParams(params);
                 titleBar.setPadding(titleBar.getPaddingLeft(),
-                        titleBar.getPaddingRight(),
                         titleBar.getPaddingTop()+ statusHeight,
+                        titleBar.getPaddingRight(),
                         titleBar.getPaddingBottom());
                 titleBar.setBackgroundColor(color);
             }
